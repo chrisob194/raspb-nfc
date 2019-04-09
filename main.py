@@ -3,8 +3,8 @@ import ndef
 
 def code_finder(ndef_string,len_code):
     index = ndef_string.index('Text',17)
-    code_start = index+5
-    code_end = index+5+len_code
+    code_start = index+6
+    code_end = index+6+len_code
     code = ndef_string[code_start:code_end]
     return code
 
