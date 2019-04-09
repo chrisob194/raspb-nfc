@@ -19,7 +19,7 @@ uid = mifare.select()
 ndef_data = mifare.read_ndef()
 
 # Parse NDEF data
-ndef_records = list(ndef.message_decoder(ndef_data))
+ndef_records = ndef.message_decoder(ndef_data)
 print(ndef_records)
 code = ndef_records.text
 print(code)
