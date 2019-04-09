@@ -14,5 +14,5 @@ ndef_data = mifare.read_ndef()
 ndef_records = list(ndef.message_decoder(ndef_data))
 print(ndef_records)
 print(type(ndef_records))
-stringa = ndef_records[0]
+stringa = str(ndef_records[0])
 print(type(stringa))
