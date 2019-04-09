@@ -20,9 +20,9 @@ ndef_data = mifare.read_ndef()
 
 # Parse NDEF data
 ndef_records = ndef.message_decoder(ndef_data)
-print(ndef_records)
-code = ndef_records.text
-print(code)
+print(type(ndef_records))
+#code = ndef_records.text
+#print(code)
 '''
 stringa = str(ndef_records[0])
 code = code_finder(stringa,5)
