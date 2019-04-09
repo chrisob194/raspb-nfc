@@ -2,7 +2,7 @@ import nxppy
 import ndef
 import time
 
-place_ID = A1
+place_ID = "A1"
 
 def code_finder(ndef_string,len_code):
     index = ndef_string.index('Text',17)
@@ -43,6 +43,7 @@ def main():
             # SelectError is raised if no card is in the field.
             pass
 
+        print(registro)
         time.sleep(3)
 
 if __name__ == '__main__':
