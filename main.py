@@ -1,5 +1,6 @@
 import nxppy
 import ndef
+import time
 
 def code_finder(ndef_string,len_code):
     index = ndef_string.index('Text',17)
