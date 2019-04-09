@@ -9,6 +9,9 @@ def code_finder(ndef_string,len_code):
     code = ndef_string[code_start:code_end]
     return code
 
+#def write_to_file(string):
+
+
 def main():
     # Instantiate reader
     mifare = nxppy.Mifare()
@@ -24,6 +27,8 @@ def main():
             stringa = str(ndef_records[0])
             code = code_finder(stringa,5)
             print(code)
+            current_time = time.strftime("%d-%m-%Y %H:%M:%S", time.gmtime())
+            print(current_time)
         except nxppy.SelectError:
             # SelectError is raised if no card is in the field.
             pass
