@@ -24,8 +24,8 @@ def main():
             code = code_finder(stringa,5)
             print(code)
         except nxppy.SelectError:
-        # SelectError is raised if no card is in the field.
-        pass
+            # SelectError is raised if no card is in the field.
+            pass
 
         time.sleep(3)
 
