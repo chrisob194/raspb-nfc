@@ -2,6 +2,8 @@ import nxppy
 import ndef
 import time
 
+place_ID = A1
+
 def code_finder(ndef_string,len_code):
     index = ndef_string.index('Text',17)
     code_start = index+6
@@ -12,9 +14,16 @@ def code_finder(ndef_string,len_code):
 #def write_to_file(string):
 
 
+'''
+Appunti:
+-tutti i record vanno inseriti in una lista (conviene creare un tipo di dato)
+-ogni tot tempo questa lista viene svuotata dentro un file che viene inviato via ftp
+'''
 def main():
     # Instantiate reader
     mifare = nxppy.Mifare()
+    # dict with presence signed in
+    registro = {}
     while True:
         try:
             # Select tag
@@ -29,6 +38,7 @@ def main():
             print(code)
             current_time = time.strftime("%d-%m-%Y %H:%M:%S", time.gmtime())
             print(current_time)
+            registro.update(code:current_time)
         except nxppy.SelectError:
             # SelectError is raised if no card is in the field.
             pass
