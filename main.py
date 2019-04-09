@@ -1,7 +1,7 @@
 import nxppy
 import ndef
 
-def string_parser(string):
+#def string_parser(string):
 
 
 # Instantiate reader
