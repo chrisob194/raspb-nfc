@@ -102,9 +102,6 @@ def tk_nfc_read():
 	#routine after
 	window.after(3000,tk_nfc_read)
 
-
-
-
 if __name__ == '__main__':
-    window.after(1000,tk_nfc_read)
+	window.after(1000,tk_nfc_read)
 	window.mainloop()
