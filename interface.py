@@ -54,9 +54,13 @@ window.configure(background="white")
 '''
 Variabili globali
 '''
-#text1 = "Appoggia badge al lettore!"
-#text2 = "Timbratura effettuata"
-#counter = 0
+# istanza base di tkinter (manca settare le dimensioni e la posizione centrale del label)
+text_waiting = "Appoggiare badge sul lettore..."
+text_succeed = "Ingresso confermato!"
+label = tk.Label(window,fg="black",bg="white")
+#label['text'] = text_waiting
+label.pack()
+#label.grid(row=0,column=0)
 
 mifare = nxppy.Mifare() #istanza del reader
 registro = {} #dizionario che contiene i valori registrati
@@ -84,13 +88,10 @@ def task():
 '''
 
 def tk_nfc_read():
-	# istanza base di tkinter (manca settare le dimensioni e la posizione centrale del label)
-	text_waiting = "Appoggiare badge sul lettore..."
-	text_succeed = "Ingresso confermato!"
-	label = tk.Label(window,fg="black",bg="white")
-	#label['text'] = text_waiting
-	label.pack()
-	#label.grid(row=0,column=0)
+	#inizializzazione
+	global text_waiting
+	global text_succeed
+	global label
 
 	# lettura badge
 	global mifare
