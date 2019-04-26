@@ -87,7 +87,8 @@ def tk_nfc_read():
 	# istanza base di tkinter (manca settare le dimensioni e la posizione centrale del label)
 	text_waiting = "Appoggiare badge sul lettore..."
 	text_succeed = "Ingresso confermato!"
-	label = tk.Label(window,text=text_waiting,fg="black",bg="white")
+	label = tk.Label(window,fg="black",bg="white")
+	#label['text'] = text_waiting
 	#label.pack()
 	label.grid(row=0,column=0)
 
@@ -97,6 +98,8 @@ def tk_nfc_read():
 	detected = reader() #True se rileva un badge
 	if detected is True:
 		label['text'] = text_succeed #aggiorno il testo
+	else:
+		label['text'] = text_waiting
 
 	# invio via ftp dei risultati
 
