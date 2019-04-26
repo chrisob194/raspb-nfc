@@ -88,7 +88,7 @@ def tk_nfc_read():
 	text_waiting = "Appoggiare badge sul lettore..."
 	text_succeed = "Ingresso confermato!"
 	label = tk.Label(window,text=text_waiting,fg="black",bg="white")
-	label.pack()
+	#label.pack()
 	label.grid(row=0,column=0)
 
 	# lettura badge
