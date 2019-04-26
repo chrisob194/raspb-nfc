@@ -9,38 +9,38 @@ Funzioni per lettura badge e scansione codice
 '''
 
 def code_finder(ndef_string,len_code):
-    index = ndef_string.index('Text',17)
-    code_start = index+6
-    code_end = index+6+len_code
-    code = ndef_string[code_start:code_end]
-    return code
+	index = ndef_string.index('Text',17)
+	code_start = index+6
+	code_end = index+6+len_code
+	code = ndef_string[code_start:code_end]
+	return code
 
 def reader():
 	code = ""
 	detected = False
 	try:
-        # Select tag
-        uid = mifare.select()
-        # Read NDEF data
-        ndef_data = mifare.read_ndef()
-        # Parse NDEF data
-        ndef_records = list(ndef.message_decoder(ndef_data))
-        print(ndef_records)
-        stringa = str(ndef_records[0])
-        code = code_finder(stringa,5)
-        if code != "":
-        	detected = True
-        print(code)
-        current_time = time.strftime("%d-%m-%Y %H:%M:%S", time.gmtime())
-        print(current_time)
-        if code not in registro:
-            registro[code] = current_time
-    except nxppy.SelectError:
-        # SelectError is raised if no card is in the field.
-        pass
+		# Select tag
+		uid = mifare.select()
+		# Read NDEF data
+		ndef_data = mifare.read_ndef()
+		# Parse NDEF data
+		ndef_records = list(ndef.message_decoder(ndef_data))
+		print(ndef_records)
+		stringa = str(ndef_records[0])
+		code = code_finder(stringa,5)
+		if code != "":
+			detected = True
+		print(code)
+		current_time = time.strftime("%d-%m-%Y %H:%M:%S", time.gmtime())
+		print(current_time)
+		if code not in registro:
+			registro[code] = current_time
+	except nxppy.SelectError:
+		# SelectError is raised if no card is in the field.
+		pass
 
-    print(registro)
-    return detected
+	print(registro)
+	return detected
 
 '''
 Inizializzazipone finestra
