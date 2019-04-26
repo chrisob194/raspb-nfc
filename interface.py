@@ -89,8 +89,8 @@ def tk_nfc_read():
 	text_succeed = "Ingresso confermato!"
 	label = tk.Label(window,fg="black",bg="white")
 	#label['text'] = text_waiting
-	#label.pack()
-	label.grid(row=0,column=0)
+	label.pack()
+	#label.grid(row=0,column=0)
 
 	# lettura badge
 	global mifare
