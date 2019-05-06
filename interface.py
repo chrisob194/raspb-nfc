@@ -30,9 +30,9 @@ def reader():
 		code = code_finder(stringa,5)
 		if code != "":
 			detected = True
-		print(code)
-		current_time = time.strftime("%d-%m-%Y %H:%M:%S", time.gmtime())
-		print(current_time)
+			print(code)
+			current_time = time.strftime("%d-%m-%Y %H:%M:%S", time.gmtime())
+			print(current_time)
 		if code not in registro:
 			registro[code] = current_time
 	except nxppy.SelectError:
@@ -57,7 +57,7 @@ Variabili globali
 # istanza base di tkinter (manca settare le dimensioni e la posizione centrale del label)
 text_waiting = "Appoggiare badge sul lettore..."
 text_succeed = "Ingresso confermato!"
-label = tk.Label(window,fg="black",bg="white")
+label = tk.Label(window,fg="blue",bg="white",height="30",font=("Courier",30))
 #label['text'] = text_waiting
 label.pack()
 #label.grid(row=0,column=0)
@@ -82,8 +82,8 @@ def task():
 		#mostro text2
 		label1.config(fg="white")
 		label2.config(fg="black")
-	
-	counter += 1	
+
+	counter += 1
 	window.after(3000,task)
 '''
 
@@ -99,8 +99,10 @@ def tk_nfc_read():
 	detected = reader() #True se rileva un badge
 	if detected is True:
 		label['text'] = text_succeed #aggiorno il testo
+		label['fg'] = 'blue'
 	else:
 		label['text'] = text_waiting
+		label['fg'] = 'green'
 
 	# invio via ftp dei risultati
 
